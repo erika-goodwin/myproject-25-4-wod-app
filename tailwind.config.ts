@@ -11,6 +11,13 @@ export default {
   theme: {
     extend: {
       colors: {
+        charcoal: "#363538",
+        gray: "#8D8C8A",
+        offwhite: "#F6F6F6",
+        deepblue: "#408697",
+        turquoise: "#52D6F4",
+
+        // Default
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
