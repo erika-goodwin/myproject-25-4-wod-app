@@ -1,10 +1,10 @@
 import { EnvVarWarning } from "@/components/env-var-warning";
 import { AuthButton } from "@/components/auth-button";
-import { WodPage } from "@/components/top-page";
+import WodBlock from "@/components/wod-block";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { hasEnvVars } from "@/lib/utils";
 import Link from "next/link";
-import { HistoryPage } from "@/components/history-page";
+import { HistoryPage } from "@/components/history-block";
 import { ContentBox } from "@/components/content-block";
 
 export default function Home() {
@@ -22,7 +22,7 @@ export default function Home() {
         <div className="flex-1 flex flex-col w-full  p-5">
           <main className="flex-1 flex flex-col items-center gap-6 px-4">
             <ContentBox title="Today's WOD">
-              <WodPage />
+              <WodBlock />
             </ContentBox>
             <ContentBox title="Workout History">
               <HistoryPage />
