@@ -1,39 +1,42 @@
-import { createClient } from "@/lib/supabase/server";
+// import { createClient } from "@/lib/supabase/server";
 import { Button } from "./ui/button";
 // import { useState } from "react";
 
+type Wod = {
+  id: string;
+  name: string;
+  exercises: string[];
+  date: string;
+};
+
 export default async function WodBlock() {
-  // const [error, setError] = useState<string | null>(null);
+  // const supabase = await createClient();
 
-  // const fetchData = async () => {
-  //   const supabase = await createClient();
-  //   try {
-  //     const { data, error } = await supabase.from("wods").select("*");
+  const wod = await fetch("http://localhost:3000/api/today", {
+    cache: "no-store",
+  }).then((res) => {
+    console.log("Response status:", res.status);
+    console.log("Response ok:", res.ok);
+    console.log("Response json:", res.json());
 
-  //     return data;
-  //   } catch (error) {
-  //     // setError(error instanceof Error ? error.message : "An error occurred");
-  //     console.log(">>>>> error:", error);
-  //   }
-  // };
+    return res.json();
+  });
 
-  // const data = fetchData();
+  // .then((data) => console.log(">>>> data", data));
 
-  const supabase = await createClient();
+  // const { data, error } = await supabase
+  //   .from("wods")
+  //   .select("*")
+  //   .eq("date", "2025-10-29"); // modify depending on your table & filter
 
-  const { data, error } = await supabase
-    .from("wods")
-    .select("*")
-    .eq("date", "2025-10-29"); // modify depending on your table & filter
+  // if (error) {
+  //   console.error("Supabase error:", error);
+  //   return <div>Error loading data</div>;
+  // }
 
-  if (error) {
-    console.error("Supabase error:", error);
-    return <div>Error loading data</div>;
-  }
+  console.log(">>>>> fetchData:", wod);
 
-  console.log(">>>>> fetchData:", data);
-
-  const wod = data[0];
+  // const wod = data[0];
 
   return (
     <>
