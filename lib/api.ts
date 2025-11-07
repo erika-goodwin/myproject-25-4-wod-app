@@ -10,6 +10,9 @@ export async function logWorkout(
     .from("user_logs")
     .insert([{ user_id: userId, wod_id: wodId, notes, completed: true }]);
 
-  if (error) throw error;
+  if (error) {
+    console.error(">>> Supabase insert error", error);
+    throw new Error(error.message || "Failed to log workout");
+  }
   return data;
 }
