@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { logWorkout } from "@/lib/api";
 import { createClient } from "@/lib/supabase/client";
 import { redirect } from "next/navigation";
+import toast from "react-hot-toast";
 
 type Wod = {
   id: string;
@@ -21,6 +22,7 @@ export default function WodBlock() {
   const [userId, setUserId] = useState("");
   const [userLoggedIn, setUSerLoggedIn] = useState(false);
 
+  // [1] Fetch User
   useEffect(() => {
     const supabase = createClient();
     const fetchUser = async () => {
@@ -43,26 +45,14 @@ export default function WodBlock() {
     fetchUser();
   }, []);
 
+  // [2] Fetch Today's WOD
   useEffect(() => {
     const fetchWod = async () => {
       try {
-        console.log("Supabase URL:", process.env.NEXT_PUBLIC_SUPABASE_URL);
-        console.log(
-          "Supabase Key defined:",
-          !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-        );
-
         const supabase = createClient();
         const today = new Date();
         // const today = new Date().toISOString().split("T")[0];
         const localDate = today.toLocaleDateString("en-CA");
-        // const today = "2025-10-29";
-
-        // console.log(">>>>> localDate:", localDate);
-        // console.log(
-        //   ">>> All WODs:",
-        //   await supabase.from("wods").select("id, name, date")
-        // );
 
         const { data, error } = await supabase
           .from("wods")
@@ -107,27 +97,79 @@ export default function WodBlock() {
     fetchWod();
   }, []);
 
-  const handleClickDone = () => {
+  // [3] Check if user already logged today's WOD
+  useEffect(() => {
+    const checkIfDone = async () => {
+      // debugger;
+      if (!userId || !wod?.id) return;
+
+      console.log(">>>>>> log is done? ============", userId, wod?.id);
+
+      const supabase = createClient();
+      const { data, error } = await supabase
+        .from("user_logs")
+        .select()
+        .eq("user_id", userId)
+        .eq("wod_id", wod.id)
+        .single();
+
+      if (error) {
+        console.error("Error checking workout log:", error);
+        return;
+      }
+
+      if (data) {
+        console.log(">>>>>> WOD already logged today:", data);
+        setDone(true);
+      }
+    };
+
+    checkIfDone();
+  }, [userId, wod?.id]);
+
+  //[4] Handle mark As Done
+  const handleClickDone = async () => {
     if (!userLoggedIn) {
+      toast("Please login first", {
+        icon: "🔑",
+      });
       redirect("/auth/login");
+      return;
     }
+
+    if (done) return;
 
     console.log(">>> Logging workout...", { userId, wodId: wod?.id, note });
 
-    logWorkout(userId, wod?.id, note);
+    if (!wod?.id) {
+      toast.error("WOD data not logged yet.");
+      return;
+    }
+
+    const { error } = await logWorkout(userId, wod?.id, note);
     console.log("✅ Workout logged successfully:", {
       userId,
       wodId: wod?.id,
       note,
     });
+    if (error) {
+      toast.error("❌ Couldn’t save workout. Please try again.");
+    } else {
+      toast("Good Job!", {
+        icon: "👏",
+      });
 
-    setDone(!done);
+      // Clean up WOD
+      setDone(!done);
+      setNote("");
+      setShowNoteInput(false);
+    }
   };
 
+  // [5] US redering
   if (loading) {
     return <p>Loading ... </p>;
   }
-
   if (!wod) {
     return <p>Failed to load workout data.</p>;
   }

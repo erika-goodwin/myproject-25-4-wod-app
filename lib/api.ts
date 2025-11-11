@@ -14,5 +14,7 @@ export async function logWorkout(
     console.error(">>> Supabase insert error", error);
     throw new Error(error.message || "Failed to log workout");
   }
-  return data;
+
+  console.log(">>> supabase sent without error");
+  return { data, error };
 }

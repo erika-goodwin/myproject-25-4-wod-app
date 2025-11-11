@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Inter, Poppins } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -39,6 +40,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.className} ${inter.variable} ${poppins.variable} antialiased bg-charcoal text-offwhite`}
       >
+        <Toaster />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
