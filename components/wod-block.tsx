@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useEffectEvent, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { logWorkout } from "@/lib/api";
 import { createClient } from "@/lib/supabase/client";
@@ -13,37 +13,14 @@ type Wod = {
   date: string;
 };
 
-export default function WodBlock() {
+export default function WodBlock(userId: string, userLoggedIn: boolean) {
   const [wod, setWod] = useState<Wod | null>(null);
   const [loading, setLoading] = useState(true);
   const [done, setDone] = useState(false);
   const [note, setNote] = useState("");
   const [showNoteInput, setShowNoteInput] = useState(false);
-  const [userId, setUserId] = useState("");
-  const [userLoggedIn, setUSerLoggedIn] = useState(false);
-
-  // [1] Fetch User
-  useEffect(() => {
-    const supabase = createClient();
-    const fetchUser = async () => {
-      const { data, error } = await supabase.auth.getUser();
-      console.log(">>>>> fetchUser ====");
-
-      if (error) {
-        console.error("Error fetching user:", error);
-      }
-
-      if (data?.user) {
-        console.log(">>>>> User found:", data.user);
-        setUserId(data.user.id);
-        setUSerLoggedIn(true);
-      } else {
-        console.log(">>>>> No user logged in");
-        setUSerLoggedIn(false);
-      }
-    };
-    fetchUser();
-  }, []);
+  // const [userId, setUserId] = useState("");
+  // const [userLoggedIn, setUSerLoggedIn] = useState(false);
 
   // [2] Fetch Today's WOD
   useEffect(() => {
@@ -134,7 +111,7 @@ export default function WodBlock() {
         icon: "🔑",
       });
       redirect("/auth/login");
-      return;
+      // return;
     }
 
     if (done) return;

@@ -1,15 +1,22 @@
 import { EnvVarWarning } from "@/components/env-var-warning";
 import { AuthButton } from "@/components/auth-button";
-import WodBlock from "@/components/wod-block";
+// import WodBlock from "@/components/wod-block";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { hasEnvVars } from "@/lib/utils";
 import Link from "next/link";
-import { HistoryPage } from "@/components/history-block";
-import { ContentBox } from "@/components/content-block";
+// import { HistoryPage } from "@/components/history-block";
+// import { ContentBox } from "@/components/content-block";
+// import { createClient } from "@/lib/supabase/client";
+// import { useEffect, useState } from "react";s
+import DashboardClient from "@/components/dashboard-client";
 
 export default function Home() {
-  console.log(">>>>>>hasEnvVars:", hasEnvVars);
-  
+  // const [loading, setLoading] = useState(true);
+  // const [userId, setUserId] = useState(null);
+  // const [user, setUser] = useState(null);
+  // const [history, setHistory] = useState([]);
+  // const [userLoggedIn, setUserLoggedIn] = useState(false);
+
   return (
     <main className="min-h-screen flex flex-col items-center">
       <div className="flex-1 w-full flex flex-col gap-20 items-center">
@@ -23,12 +30,7 @@ export default function Home() {
         </nav>
         <div className="flex-1 flex flex-col w-full  p-5">
           <main className="flex-1 flex flex-col items-center gap-6 px-4">
-            <ContentBox title="Today's WOD">
-              <WodBlock />
-            </ContentBox>
-            <ContentBox title="Workout History">
-              <HistoryPage />
-            </ContentBox>
+            <DashboardClient />
           </main>
         </div>
 
