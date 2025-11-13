@@ -13,7 +13,7 @@ type Wod = {
   date: string;
 };
 
-export default function WodBlock(userId: string, userLoggedIn: boolean) {
+export default function WodBlock({ userId }) {
   const [wod, setWod] = useState<Wod | null>(null);
   const [loading, setLoading] = useState(true);
   const [done, setDone] = useState(false);
@@ -50,25 +50,6 @@ export default function WodBlock(userId: string, userLoggedIn: boolean) {
       } finally {
         setLoading(false);
       }
-      // With fake API
-      // try {
-      //   const baseUrl =
-      //     process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-      //   const res = await fetch(`${baseUrl}/api/today`, { cache: "no-store" });
-
-      //   if (!res.ok) {
-      //     throw new Error(`Failed to fetch WOD: ${res.status}`);
-      //   }
-
-      //   const data = await res.json();
-      //   console.log(">>> Fetched WOD:", data);
-
-      //   setWod(data);
-      // } catch (error) {
-      //   console.error(">>> Error loading WOD:", error);
-      // } finally {
-      //   setLoading(false);
-      // }
     };
 
     fetchWod();
@@ -78,9 +59,12 @@ export default function WodBlock(userId: string, userLoggedIn: boolean) {
   useEffect(() => {
     const checkIfDone = async () => {
       // debugger;
+
       if (!userId || !wod?.id) return;
 
-      console.log(">>>>>> log is done? ============", userId, wod?.id);
+      // setUSerLoggedIn(true);
+
+      console.log(">>>>>> log is done? ============", !userId || !wod?.id);
 
       const supabase = createClient();
       const { data, error } = await supabase
@@ -102,11 +86,11 @@ export default function WodBlock(userId: string, userLoggedIn: boolean) {
     };
 
     checkIfDone();
-  }, [userId, wod?.id]);
+  }, [userId]);
 
   //[4] Handle mark As Done
   const handleClickDone = async () => {
-    if (!userLoggedIn) {
+    if (!userId) {
       toast("Please login first", {
         icon: "🔑",
       });

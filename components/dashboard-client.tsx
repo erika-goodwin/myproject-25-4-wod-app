@@ -22,80 +22,107 @@ type Log = {
   wod: Wod[];
 };
 
-export default function DashboardClient() {
-  const [authLoading, setAuthLoading] = useState(true);
-  //   const [loading, setLoading] = useState(true);
-  const [userId, setUserId] = useState(null);
+export default function DashboardClient({ user }) {
+  //   const [authLoading, setAuthLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
+  //   const [userId, setUserId] = useState(null);
   //   const [user, setUser] = useState(null);
   const [history, setHistory] = useState<Log[]>([]);
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
+  //   const [userLoggedIn, setUserLoggedIn] = useState(false);
 
-  // [1] Fetch User & History
+  const userId = user?.id ?? null;
+  // [1] Fetch  History
   useEffect(() => {
-    const supabase = createClient();
-    const fetchUser = async () => {
-      const { data: userData, error: userError } =
-        await supabase.auth.getUser();
-      console.log(">>>>> fetchUser ====", userData.user);
+    const loadHistory = async () => {
+      const supabase = createClient();
 
-      if (userError) {
-        console.error("Error fetching user:", userError);
-        // setLoading(false);
-        setAuthLoading(false);
+      //   console.log(">>>>> loadHistory ====", userData.user);
+
+      if (!userId) {
+        // console.error("Error fetching user:", userFetchError);
+        console.log(">>>>> No user logged in");
+        setLoading(false);
+        // setAuthLoading(false);
         return;
       }
 
-      if (!userData?.user || userData?.user === null) {
-        console.log(">>>>> No user logged in");
-        setUserLoggedIn(false);
-        setAuthLoading(false);
-      }
+      //   if (!userData?.user || userData?.user === null) {
+      //     console.log(">>>>> No user logged in");
+      //     // setUserLoggedIn(false);
+      //     setAuthLoading(false);
+      //   }
 
-      setAuthLoading(false);
+      //   setUserLoggedIn(true);
+      //   setAuthLoading(false);
 
       //   if (userData?.user) {
-      console.log(
-        ">>>>> User found: user",
-        userData.user,
-        "userId:",
-        userData.user.id
-      );
+      //   console.log(
+      //     ">>>>> User found: user",
+      //     userData.user,
+      //     "userId:",
+      //     userData.user.id
+      //   );
       //   setUser(userData.user);
-      setUserId(userData.user.id);
-      setUserLoggedIn(true);
+      //   setUserId(user.id);
+      //   setUserLoggedIn(true);
 
+      // Fetch History
       const { data: logs, error: logsError } = await supabase
         .from("user_logs")
         .select("*, wod:wods(*)")
-        .eq("user_id", userData.user.id)
+        .eq("user_id", user.id)
         .order("created_at", { ascending: false });
-
-      //   debugger;
 
       if (logsError) {
         console.error("Error fetching history:", logsError);
+        setLoading(false);
       } else {
         console.log(">>>> Log:", logs);
         setHistory(logs as Log[]);
+        setLoading(false);
+        // setAuthLoading(false);
       }
 
-      setAuthLoading(true);
-      setAuthLoading(false); // 🔥 this unblocks rendering
+      //   debugger;
+      //
+      //   setAuthLoading(true);
+      //   setAuthLoading(false); // 🔥 this unblocks rendering
+      //   console.log(">>>>>> 🔥 userLoggedIn:", userLoggedIn);
     };
-    fetchUser();
+    loadHistory();
   }, []);
 
-  if (authLoading) {
+  // CHECK HERE TOMORROW IF THE LOAD WILL BE UPDATED 🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+  const refreshHistory = async () => {
+    console.log(">>>> refresh History == New Logs ==");
+
+    const supabase = createClient();
+    if (!userId) return;
+
+    const { data: logs } = await supabase
+      .from("user_logs")
+      .select("*, wod:wods(*)")
+      .eq("user_id", user.id)
+      .order("created_at", { ascending: false });
+
+    console.log(">>>> Log:", logs);
+    setHistory(logs as Log[]);
+  };
+
+  if (loading) {
     return <p className="text-center py-10">Checking login...</p>;
   }
+
+  //   debugger;
 
   return (
     <>
       <ContentBox title="Today's WOD">
-        <WodBlock userId={userId} userLoggedIn={userLoggedIn} />
+        <WodBlock userId={userId} onLogged={() => refreshHistory()} />
       </ContentBox>
       <ContentBox title="Workout History">
-        <HistoryPage logs={history} userLoggedIn={userLoggedIn} />
+        <HistoryPage logs={history} userId={userId} />
       </ContentBox>
     </>
   );

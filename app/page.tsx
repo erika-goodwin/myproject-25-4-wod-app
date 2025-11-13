@@ -9,13 +9,16 @@ import Link from "next/link";
 // import { createClient } from "@/lib/supabase/client";
 // import { useEffect, useState } from "react";s
 import DashboardClient from "@/components/dashboard-client";
+import { createClient } from "@/lib/supabase/server";
 
-export default function Home() {
-  // const [loading, setLoading] = useState(true);
-  // const [userId, setUserId] = useState(null);
-  // const [user, setUser] = useState(null);
-  // const [history, setHistory] = useState([]);
-  // const [userLoggedIn, setUserLoggedIn] = useState(false);
+export default async function Home() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+    // userFetchError,
+  } = await supabase.auth.getUser();
+
+  console.log(">>>>> Home page user 🐒　:", user);
 
   return (
     <main className="min-h-screen flex flex-col items-center">
@@ -30,7 +33,7 @@ export default function Home() {
         </nav>
         <div className="flex-1 flex flex-col w-full  p-5">
           <main className="flex-1 flex flex-col items-center gap-6 px-4">
-            <DashboardClient />
+            <DashboardClient user={user} />
           </main>
         </div>
 

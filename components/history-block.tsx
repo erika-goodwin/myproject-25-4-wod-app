@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 type Wod = {
   date: string;
@@ -17,17 +18,17 @@ type Log = {
   wod: Wod[];
 };
 
-type HistoryProps = {
-  logs: Log[];
-  userLoggedIn: boolean;
-};
+// type HistoryProps = {
+//   logs: Log[];
+//   userLoggedIn: boolean;
+// };
 
-export function HistoryPage({ logs, userLoggedIn }: HistoryProps) {
-  // console.log(">>>>> history component:", userLoggedIn, logs);
+export function HistoryPage({ logs, userId }: { logs: Log[]; userId: any }) {
+  console.log(">>>>> history component:", userId, logs);
 
   return (
     <div className=" flex flex-col gap-16 items-center">
-      {userLoggedIn ? (
+      {userId ? (
         <div className="w-full">
           <ul role="list" className=" divide-y divide-default">
             {logs.map((log) => (
