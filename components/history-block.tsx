@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 type Wod = {
   date: string;
@@ -17,11 +16,6 @@ type Log = {
   note: string;
   wod: Wod[];
 };
-
-// type HistoryProps = {
-//   logs: Log[];
-//   userLoggedIn: boolean;
-// };
 
 export function HistoryPage({ logs, userId }: { logs: Log[]; userId: any }) {
   console.log(">>>>> history component:", userId, logs);

@@ -19,8 +19,6 @@ export default function WodBlock({ userId }) {
   const [done, setDone] = useState(false);
   const [note, setNote] = useState("");
   const [showNoteInput, setShowNoteInput] = useState(false);
-  // const [userId, setUserId] = useState("");
-  // const [userLoggedIn, setUSerLoggedIn] = useState(false);
 
   // [2] Fetch Today's WOD
   useEffect(() => {
@@ -58,11 +56,7 @@ export default function WodBlock({ userId }) {
   // [3] Check if user already logged today's WOD
   useEffect(() => {
     const checkIfDone = async () => {
-      // debugger;
-
       if (!userId || !wod?.id) return;
-
-      // setUSerLoggedIn(true);
 
       console.log(">>>>>> log is done? ============", !userId || !wod?.id);
 
