@@ -17,15 +17,27 @@ type Log = {
   wod: Wod[];
 };
 
-export function HistoryPage({ logs, userId }: { logs: Log[]; userId: any }) {
+export function HistoryBlock({
+  logs,
+  userId,
+  dashboard,
+}: {
+  logs: Log[];
+  userId: any;
+  dashboard: boolean;
+}) {
   console.log(">>>>> history component:", userId, logs);
+
+  const historyLog = dashboard ? logs.slice(0, 3) : logs;
+
+  console.log(">>>> historyLog check:,", dashboard);
 
   return (
     <div className=" flex flex-col gap-16 items-center">
       {userId ? (
         <div className="w-full">
           <ul role="list" className=" divide-y divide-default">
-            {logs.map((log) => (
+            {historyLog.map((log) => (
               <li key={log.id} className="py-4 sm:py-4 border-b">
                 <div className="flex items-center gap-2">
                   <div className="flex-1 min-w-0 ms-2">
@@ -48,6 +60,12 @@ export function HistoryPage({ logs, userId }: { logs: Log[]; userId: any }) {
               </li>
             ))}
           </ul>
+
+          {dashboard && (
+            <div className="flex justify-center">
+              <Link href="/history">See more</Link>
+            </div>
+          )}
         </div>
       ) : (
         <>

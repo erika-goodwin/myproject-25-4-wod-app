@@ -13,7 +13,7 @@ type Wod = {
   date: string;
 };
 
-export default function WodBlock({ userId }) {
+export default function WodBlock({ userId, onLogged }) {
   const [wod, setWod] = useState<Wod | null>(null);
   const [loading, setLoading] = useState(true);
   const [done, setDone] = useState(false);
@@ -118,6 +118,9 @@ export default function WodBlock({ userId }) {
       setDone(!done);
       setNote("");
       setShowNoteInput(false);
+
+      // History update
+      onLogged?.();
     }
   };
 

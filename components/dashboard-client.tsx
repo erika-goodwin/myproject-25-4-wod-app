@@ -1,6 +1,6 @@
 "use client";
 import WodBlock from "@/components/wod-block";
-import { HistoryPage } from "@/components/history-block";
+import { HistoryBlock } from "@/components/history-block";
 import { ContentBox } from "@/components/content-block";
 import { createClient } from "@/lib/supabase/client";
 import { useEffect, useState } from "react";
@@ -58,10 +58,8 @@ export default function DashboardClient({ user }) {
     loadHistory();
   }, []);
 
-  // CHECK HERE TOMORROW IF THE LOAD WILL BE UPDATED 🔥🔥🔥🔥🔥🔥🔥🔥🔥
+  // Update the history component when user logged WOD
   const refreshHistory = async () => {
-    console.log(">>>> refresh History == New Logs ==");
-
     const supabase = createClient();
     if (!userId) return;
 
@@ -71,7 +69,6 @@ export default function DashboardClient({ user }) {
       .eq("user_id", user.id)
       .order("created_at", { ascending: false });
 
-    console.log(">>>> Log:", logs);
     setHistory(logs as Log[]);
   };
 
@@ -85,7 +82,7 @@ export default function DashboardClient({ user }) {
         <WodBlock userId={userId} onLogged={() => refreshHistory()} />
       </ContentBox>
       <ContentBox title="Workout History">
-        <HistoryPage logs={history} userId={userId} />
+        <HistoryBlock logs={history} userId={userId} dashboard={true} />
       </ContentBox>
     </>
   );
