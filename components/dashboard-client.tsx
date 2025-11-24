@@ -26,6 +26,9 @@ export default function DashboardClient({ user }) {
   const [loading, setLoading] = useState(true);
   const [history, setHistory] = useState<Log[]>([]);
 
+  // BUG 🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝
+  // When you read the page for the first time, evern with the record, it thinks you don't have the record and you can add the same item more than twise
+
   const userId = user?.id ?? null;
   // [1] Fetch  History
   useEffect(() => {
