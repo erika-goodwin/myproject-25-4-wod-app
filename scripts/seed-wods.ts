@@ -1,4 +1,5 @@
-import { supabaseAdmin } from "./supabase-admin.ts";
+import { supabaseAdmin } from "./supabase-admin";
+// import { supabaseAdmin } from "./supabase-admin.ts";
 import { readFileSync } from "node:fs";
 
 const wods = JSON.parse(

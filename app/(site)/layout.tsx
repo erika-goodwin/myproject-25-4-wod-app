@@ -1,17 +1,14 @@
-// app/(site)/layout.tsx
 import Link from "next/link";
 import { EnvVarWarning } from "@/components/env-var-warning";
 import { AuthButton } from "@/components/auth-button";
-import { ThemeSwitcher } from "@/components/theme-switcher";
 import { hasEnvVars } from "@/lib/utils";
-import { createClient } from "@/lib/supabase/server";
+import { ReactNode } from "react";
 
-export default async function SiteLayout({ children }) {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+export default async function SiteLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <div className="min-h-screen flex flex-col items-center gap-10">
       {/* NAV */}
@@ -21,7 +18,8 @@ export default async function SiteLayout({ children }) {
             <Link href="/">WOD Tracker</Link>
             <Link href="/history">History</Link>
           </div>
-          {!hasEnvVars ? <EnvVarWarning /> : <AuthButton user={user} />}
+          {!hasEnvVars ? <EnvVarWarning /> : <AuthButton />}
+          {/* {!hasEnvVars ? <EnvVarWarning /> : <AuthButton user={user} />} */}
         </div>
       </nav>
 
@@ -33,7 +31,7 @@ export default async function SiteLayout({ children }) {
       {/* FOOTER */}
       <footer className="w-full flex items-center justify-center border-t text-xs gap-8 py-16">
         <p>2025 Daily WOD Tracker</p>
-        <ThemeSwitcher />
+        {/* <ThemeSwitcher /> */}
       </footer>
     </div>
   );

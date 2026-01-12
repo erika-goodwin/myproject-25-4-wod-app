@@ -1,7 +1,5 @@
-// import { DeployButton } from "@/components/deploy-button";
 import { EnvVarWarning } from "@/components/env-var-warning";
 import { AuthButton } from "@/components/auth-button";
-import { ThemeSwitcher } from "@/components/theme-switcher";
 import { hasEnvVars } from "@/lib/utils";
 import Link from "next/link";
 
@@ -27,7 +25,6 @@ export default function ProtectedLayout({
 
         <footer className="w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8 py-16">
           <p>2025 Daily WOD Tracker </p>
-          <ThemeSwitcher />
         </footer>
       </div>
     </main>
