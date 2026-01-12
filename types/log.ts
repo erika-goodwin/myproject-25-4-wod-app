@@ -8,4 +8,5 @@ export type Log = {
   created_at: string;
   note: string;
   wod: Wod;
+  notes: string;
 };

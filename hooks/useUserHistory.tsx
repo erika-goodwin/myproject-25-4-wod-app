@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
-import type { Log } from "@/types/history";
+import type { Log } from "@/types/log";
 
 export function useUserHistory(userId: string | null) {
   const [loading, setLoading] = useState(true);

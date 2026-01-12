@@ -1,5 +1,5 @@
 "use client";
-import type { Log } from "@/types/history";
+import type { Log } from "@/types/log";
 import Link from "next/link";
 
 export function HistoryBlock({

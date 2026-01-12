@@ -38,7 +38,6 @@ export function useTodaysWod(userId: string | null, onLogged?: () => void) {
         // console.log(">>> Fetched WOD:", data);
 
         setWod(data);
-        
       } catch (err) {
         console.error(">>> Unexpected WOD:", err);
       } finally {
@@ -54,15 +53,25 @@ export function useTodaysWod(userId: string | null, onLogged?: () => void) {
     const checkIfDone = async () => {
       if (!userId || !wod?.id) return;
 
-      // console.log(">>>>>> log is done? ============", !userId || !wod?.id);
-
       const supabase = createClient();
+
+      const startOfToday = new Date();
+      startOfToday.setHours(0, 0, 0, 0);
+
+      const endOfToday = new Date();
+      endOfToday.setHours(23, 59, 59, 999);
+
       const { data, error } = await supabase
         .from("user_logs")
-        .select()
+        // .select("")
+        .select("id")
         .eq("user_id", userId)
         .eq("wod_id", wod.id)
-        .single();
+        .gte("created_at", startOfToday.toISOString())
+        .lte("created_at", endOfToday.toISOString())
+        .maybeSingle(); // 👈 important
+
+      console.log(">>>> HERE HERE:", data);
 
       if (error) {
         console.error("Error checking workout log:", error);
@@ -70,13 +79,40 @@ export function useTodaysWod(userId: string | null, onLogged?: () => void) {
       }
 
       if (data) {
-        // console.log(">>>>>> WOD already logged today:", data);
+        console.log(">>>>>> WOD already logged today:", data);
         setDone(true);
       }
     };
 
     checkIfDone();
-  }, [userId]);
+  }, [userId, wod?.id]);
+  // useEffect(() => {
+  //   const checkIfDone = async () => {
+  //     if (!userId || !wod?.id) return;
+
+  //     // console.log(">>>>>> log is done? ============", !userId || !wod?.id);
+
+  //     const supabase = createClient();
+  //     const { data, error } = await supabase
+  //       .from("user_logs")
+  //       .select()
+  //       .eq("user_id", userId)
+  //       .eq("wod_id", wod.id)
+  //       .single();
+  //     console.log(">>>> HERE HERE:", data);
+  //     if (error) {
+  //       console.error("Error checking workout log:", error);
+  //       return;
+  //     }
+
+  //     if (data) {
+  //       // console.log(">>>>>> WOD already logged today:", data);
+  //       setDone(true);
+  //     }
+  //   };
+
+  //   checkIfDone();
+  // }, [userId]);
 
   //[4] Handle mark As Done
   const handleClickDone = async () => {
