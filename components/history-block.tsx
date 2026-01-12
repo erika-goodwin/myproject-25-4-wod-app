@@ -11,11 +11,11 @@ export function HistoryBlock({
   userId: string | null;
   dashboard: boolean;
 }) {
-  console.log(">>>>> history component:", userId, logs);
+  // console.log(">>>>> history component:", userId, logs);
 
   const historyLog = dashboard ? logs.slice(0, 3) : logs;
 
-  console.log(">>>> historyLog check:,", dashboard, historyLog);
+  // console.log(">>>> historyLog check:,", dashboard, historyLog);
 
   function formatDate(dateString: string) {
     return new Date(dateString).toISOString().split("T")[0];

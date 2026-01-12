@@ -4,13 +4,7 @@ import { HistoryBlock } from "@/components/history-block";
 import { ContentBox } from "@/components/content-block";
 import { useUserHistory } from "@/hooks/useUserHistory";
 import { DashboardClientProps } from "@/types/user";
-// import type { Log } from "@/types/history";
-
-// type DashboardClientProps = {
-//   user: {
-//     id: string;
-//   } | null;
-// };
+import LoadingSpinner from "./loading-spinner";
 
 export default function DashboardClient({ user }: DashboardClientProps) {
   // BUG 🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝
@@ -21,7 +15,7 @@ export default function DashboardClient({ user }: DashboardClientProps) {
   const { loading, history, refreshHistory } = useUserHistory(userId);
 
   if (loading) {
-    return <p className="text-center py-10">Checking login...</p>;
+    return <LoadingSpinner text="Checking login..." />;
   }
 
   return (

@@ -4,13 +4,7 @@ import { HistoryBlock } from "@/components/history-block";
 import { ContentBox } from "@/components/content-block";
 import { useUserHistory } from "@/hooks/useUserHistory";
 import { HistoryBoardProps } from "@/types/user";
-
-
-// type HistoryBoardProps = {
-//   user: {
-//     id: string;
-//   } | null;
-// };
+import LoadingSpinner from "./loading-spinner";
 
 export default function HistoryBoard({ user }: HistoryBoardProps) {
   const userId = user?.id ?? null;
@@ -18,7 +12,7 @@ export default function HistoryBoard({ user }: HistoryBoardProps) {
   const { loading, history } = useUserHistory(userId);
 
   if (loading) {
-    return <p className="text-center py-10">Checking login...</p>;
+    return <LoadingSpinner text="Checking login..." />;
   }
 
   return (
