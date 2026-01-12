@@ -1,17 +1,14 @@
-// import { ContentBox } from "@/components/content-block";
-// import { HistoryBlock } from "@/components/history-block";
+import HistoryBoard from "@/components/historyboard-client";
+import { createClient } from "@/lib/supabase/server";
 
 export default async function HistoryPage() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+    // userFetchError,
+  } = await supabase.auth.getUser();
 
-  // SET UP THE SERVER SIDE FETCH HERE //// 
+  // };
 
-  return (
-    <>
-      <h1>History page</h1>
-
-      {/* <ContentBox title="Workout History">
-        <HistoryBlock logs={history} userId={userId} dashboard={false} />
-      </ContentBox> */}
-    </>
-  );
+  return <HistoryBoard user={user} />;
 }

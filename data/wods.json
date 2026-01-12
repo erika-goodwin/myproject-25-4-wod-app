@@ -1,0 +1,652 @@
+[
+  {
+    "name": "Double Under Chipper",
+    "day": 1,
+    "exercises": [
+      "METCON",
+      "For Time",
+      "150 Double Unders",
+      "50 Single Kettlebell Shoulder to Overhead @ 32/24",
+      "50 Burpees to Plate",
+      "50 Kettlebell Swings @ 32/24",
+      "150 Double Unders",
+      "RX+: 75 Burpees to Plate",
+      "---",
+      "POST METCON",
+      "3–4 Sets",
+      "15/15m Banded Kettlebell Suitcase Carry",
+      "4–8 Dumbbell Around the World",
+      "---",
+      "EXTRA",
+      "4 Sets",
+      "0:20–0:40 Handstand Hold"
+    ]
+  },
+  {
+    "name": "Clean & Jerk 1RM",
+    "day": 2,
+    "exercises": [
+      "WEIGHTLIFTING",
+      "Find 1 Rep Max Clean & Jerk",
+      "Time cap: 20:00",
+      "---",
+      "METCON",
+      "3 Rounds for Time",
+      "8 Single Arm Devil Clean & Jerk @ 22.5/15",
+      "75 Double Unders",
+      "---",
+      "EXTRA",
+      "3 x 20 Russian Twists with Plate"
+    ]
+  },
+  {
+    "name": "EMOM Conditioning",
+    "day": 3,
+    "exercises": [
+      "METCON",
+      "EMOM 20",
+      "Min 1: 15/12 Calorie Row",
+      "Min 2: 1–5 Ring Muscle-ups",
+      "Min 3: 20–40 Crossover Singles / Double Unders",
+      "Min 4: Rest",
+      "---",
+      "EXTRA",
+      "Bent Over Rows",
+      "5 x 5",
+      "Moderate to Heavy",
+      "Barbell or Dumbbells"
+    ]
+  },
+  {
+    "name": "Team WOD – Shoulder to Overhead",
+    "day": 4,
+    "exercises": [
+      "TEAM WOD",
+      "For time, in pairs, you go I go",
+      "One person working at a time",
+      "150 Shoulder to Overhead @ 43/30",
+      "150 Burpees Over Partner",
+      "150 Calories on a Machine",
+      "---",
+      "EXTRA",
+      "5 Sets",
+      "0:30 On / 0:30 Off",
+      "Max Calories on a Machine"
+    ]
+  },
+  {
+    "name": "Lower Body Conditioning",
+    "day": 5,
+    "exercises": [
+      "STRENGTH",
+      "4 Sets",
+      "10/10 Drop Lateral Lunges",
+      "10/10 Curtsy Lunges",
+      "Rest 1:30–2:00 Between Sets",
+      "---",
+      "METCON",
+      "For Time",
+      "21-18-15-12-9-6-3",
+      "Calorie C2 Bike",
+      "Box Jumps, Step Down @ 24/20\"",
+      "---",
+      "EXTRA",
+      "Reverse Plank Hold",
+      "4 x 1:00 On",
+      "Rest 1:00"
+    ]
+  },
+  {
+    "name": "Bench Press + Gymnastics",
+    "day": 6,
+    "exercises": [
+      "STRENGTH",
+      "Bench Press",
+      "5-5-5-5-5",
+      "---",
+      "METCON",
+      "5 Rounds for Time",
+      "6 Strict Ring Dips",
+      "12 Single Arm Devil’s Press @ 22.5/15",
+      "48 Double Unders",
+      "---",
+      "EXTRA",
+      "Single Dumbbell Bent Over Row",
+      "4 x 10–15 / 10–15"
+    ]
+  },
+  {
+    "name": "AMRAP Intervals",
+    "day": 7,
+    "exercises": [
+      "METCON",
+      "AMRAP 4 x 5",
+      "Rest 1:00 Between Rounds",
+      "400m Run",
+      "12 Toes to Bar",
+      "12 Box Jumps, Step Down @ 30/24\"",
+      "Max Rep Front Squats @ 84/60",
+      "---",
+      "EXTRA",
+      "3 Sets",
+      "10/10 Single Leg Feet Elevated Glute Bridge",
+      "15/15 Seated Band Hamstring Curl"
+    ]
+  },
+  {
+    "name": "Deadlift & Rope Climbs",
+    "day": 8,
+    "exercises": [
+      "WEIGHTLIFTING",
+      "5 Sets",
+      "2 Deadlifts @ 75% 1RM",
+      "2 Rope Climbs",
+      "Rest 1:00",
+      "---",
+      "METCON",
+      "5 Rounds for Time",
+      "10 Dumbbell Push Press @ 22.5/15 x2",
+      "10 KB Sumo Deadlift High Pull @ 32/24",
+      "10 Hand Release Push-ups",
+      "---",
+      "EXTRA",
+      "Zottman Curls",
+      "3 x 10"
+    ]
+  },
+  {
+    "name": "Thrusters + Wall Balls",
+    "day": 9,
+    "exercises": [
+      "STRENGTH",
+      "Thrusters",
+      "3-3-3-3-3",
+      "Ascending to a Heavy Set of 3",
+      "---",
+      "METCON",
+      "AMRAP 12",
+      "5 Wall Balls @ 20/14",
+      "20/15 Calorie Row",
+      "Every Round Add 5 Wall Balls",
+      "Score: Total Wall Ball Reps",
+      "---",
+      "EXTRA",
+      "3 Sets",
+      "20 Russian Twists",
+      "10 Medicine Ball Overhead Sit-ups"
+    ]
+  },
+
+  {
+    "name": "Hang Power Snatch",
+    "day": 10,
+    "exercises": [
+      "WEIGHTLIFTING",
+      "12:00 to Find Heavy Set of 2",
+      "Hang Power Snatch",
+      "---",
+      "METCON",
+      "4 Rounds, Each for Time",
+      "5 Power Snatch @ 85%",
+      "10 Pull-ups",
+      "20 DB Step Overs @ 22.5/15, 20\"",
+      "Rest 1:00",
+      "* Percentage Based on Part A",
+      "---",
+      "EXTRA",
+      "3 x 10 Wide Stance Good Mornings"
+    ]
+  },
+  {
+    "name": "Team Endurance AMRAP",
+    "day": 11,
+    "exercises": [
+      "TEAM WOD",
+      "AMRAP 30",
+      "In Pairs",
+      "400m Relay Run",
+      "200m Farmer’s Carry @ 32/24 x2",
+      "800m Relay Run",
+      "40 KB Deadlifts @ 32/24 x2",
+      "1000m Relay Run",
+      "40 Goblet Squats @ 32/24",
+      "---",
+      "EXTRA",
+      "Banded Monster Walk",
+      "3 x 1:00",
+      "Rest 1:00"
+    ]
+  },
+  {
+    "name": "Upper Body Volume",
+    "day": 12,
+    "exercises": [
+      "WEIGHTLIFTING",
+      "4 Sets",
+      "6/6 Chainsaw Rows",
+      "6 DB Seated Arnold Press",
+      "6–8 Strict Ring Pull-ups (Neutral Grip)",
+      "Rest 1:30–2:00",
+      "---",
+      "METCON",
+      "3 Rounds for Reps",
+      "1:00 Max Burpees",
+      "1:00 Max Ab Mat Sit-ups",
+      "1:00 Max Walking Lunges",
+      "1:00 Active Recovery",
+      "---",
+      "EXTRA",
+      "Prone Back Extensions",
+      "3 x 8–12"
+    ]
+  },
+  {
+    "name": "The Man in the Red Bandana",
+    "day": 13,
+    "exercises": [
+      "METCON",
+      "The Man in the Red Bandana",
+      "AMRAP 19",
+      "5 Thrusters @ 60/43",
+      "17 Front Rack Lunges",
+      "77 Double Unders",
+      "200m Plate Carry @ 20/15",
+      "---",
+      "EXTRA",
+      "3 Sets",
+      "10/10 Single Arm Band Rows",
+      "10–15 Band Pull Aparts"
+    ]
+  },
+  {
+    "name": "One Hundo Team Chipper",
+    "day": 14,
+    "exercises": [
+      "TEAM WOD",
+      "One Hundo",
+      "Teams of 3",
+      "One athlete works at a time",
+      "40:00 Time Cap",
+      "For Time",
+      "100 Box Jumps @ 24/20\"",
+      "100 Jumping Pull-ups",
+      "100 Kettlebell Swings @ 24/16",
+      "100 Walking Lunge Steps",
+      "100 Knees to Elbows",
+      "100 Push Presses @ 20/15",
+      "100 Back Extensions",
+      "100 Wall Ball Shots @ 20/14",
+      "100 Burpees",
+      "100 Double Unders",
+      "---",
+      "EXTRA",
+      "Suitcase Carry",
+      "Heavy",
+      "4 x 15m / Side"
+    ]
+  },
+  {
+    "name": "Gymnastics Strength",
+    "day": 15,
+    "exercises": [
+      "GYMNASTICS",
+      "5–6 Sets",
+      "5–10 Feet Elevated Ring Rows",
+      "5–10 Strict Ring Dips",
+      "Rest 1:00–1:30",
+      "---",
+      "METCON",
+      "Every 2:00 x 5",
+      "15 Calorie Row",
+      "9 Overhead Squats @ 60/43",
+      "Score: Worst Round",
+      "---",
+      "EXTRA",
+      "3–5 Sets",
+      "5 Reverse Snow Angels",
+      "10 Banded Good Mornings"
+    ]
+  },
+  {
+    "name": "Clean & Jerk Complex",
+    "day": 16,
+    "exercises": [
+      "WEIGHTLIFTING",
+      "Every 2:00 x 6",
+      "1 Lift Off",
+      "1 Segmented Squat Clean",
+      "1 Split Jerk",
+      "@ 75–80% 1RM Clean & Jerk",
+      "---",
+      "METCON",
+      "3 Rounds for Time",
+      "20 V-Ups",
+      "10 Shoulder to Overhead @ 52/35",
+      "5 Box Jumps @ 30/24\"",
+      "RX+: Shoulder to Overhead @ 60/43",
+      "---",
+      "EXTRA",
+      "Dumbbell Farmer’s Carry Walking Lunges",
+      "5 x 25'",
+      "As Heavy as Possible"
+    ]
+  },
+  {
+    "name": "AMRAP 20 Conditioning",
+    "day": 17,
+    "exercises": [
+      "METCON",
+      "AMRAP 20",
+      "2-4-6-8-etc",
+      "Kettlebell Deadlifts @ 32/24 x2 or DB @ 30/22.5 x2",
+      "Double Tap Burpees",
+      "200m Run",
+      "---",
+      "EXTRA",
+      "Strict Pull-ups",
+      "5 x 3–6"
+    ]
+  },
+  {
+    "name": "Front Squat + Gymnastics",
+    "day": 18,
+    "exercises": [
+      "FRONT SQUAT",
+      "Every 2:30 x 5",
+      "2 Front Squats @ 82–85% 1RM",
+      "---",
+      "METCON",
+      "EMOM 12",
+      "Min 1: 25–30 Air Squats",
+      "Min 2: 10–15 Toes to Bar",
+      "Min 3: 70 Double Unders",
+      "---",
+      "EXTRA",
+      "3 Sets",
+      "10–15 Prone Hamstring Curls",
+      "10 Straight Leg Bridge Ups"
+    ]
+  },
+  {
+    "name": "Low Hang Squat Snatch + Team WOD",
+    "day": 19,
+    "exercises": [
+      "WEIGHTLIFTING",
+      "Every 1:30 x 6",
+      "1 Low Hang Squat Snatch + 1 Squat Snatch",
+      "1+1 @ 70% 1RM Snatch",
+      "1+1 @ 75% 1RM Snatch",
+      "1+1 @ 77% 1RM Snatch",
+      "1+1 @ 81% 1RM Snatch",
+      "1+1 @ 84% 1RM Snatch",
+      "1+1 @ 86% 1RM Snatch",
+      "---",
+      "TEAM WOD",
+      "In Teams of 2",
+      "6 Rounds for Time",
+      "18 Low Hang Power Cleans @ 60/43",
+      "3 Synchro Wall Walks",
+      "RX+: 70/48",
+      "---",
+      "EXTRA",
+      "Snatch Pull",
+      "4 x 4 @ 70–80%"
+    ]
+  },
+  {
+    "name": "Team Waterfall AMRAPs",
+    "day": 20,
+    "exercises": [
+      "TEAM WOD",
+      "Teams of 2",
+      "Waterfall Style",
+      "AMRAP 6 x 4",
+      "Rest 2:00 Between AMRAPs",
+      "AMRAP 1 & 3",
+      "6 Wall Balls @ 20/14",
+      "6 Box Jump Overs @ 24/20\" (Step Down)",
+      "6 Alternating DB Hang Snatch @ 22.5/15",
+      "AMRAP 2 & 4",
+      "Max Calories on a Machine",
+      "One Person Working at a Time",
+      "---",
+      "EXTRA",
+      "3 Sets",
+      "10 Sky Touches",
+      "10 Lying Leg Raises",
+      "10 Side Plank Leg Raises (Left)",
+      "10 Side Plank Leg Raises (Right)"
+    ]
+  },
+  {
+    "name": "Floating Clean Pull + DB Metcon",
+    "day": 21,
+    "exercises": [
+      "WEIGHTLIFTING",
+      "4 x 4 Floating Clean Pull",
+      "@ 80% 1RM Clean & Jerk",
+      "Rest 1:00–1:30",
+      "---",
+      "METCON",
+      "5 Rounds",
+      "10 Dumbbell Bench Press",
+      "10 Dumbbell Hang Power Cleans",
+      "10 Dumbbell Plank Rows",
+      "@ 22.5/15 x2",
+      "---",
+      "EXTRA",
+      "Band Tricep Extensions",
+      "3 x 20"
+    ]
+  },
+  {
+    "name": "Squat Clean & Jerk + Pay on Helen",
+    "day": 22,
+    "exercises": [
+      "WEIGHTLIFTING",
+      "EMOM 6",
+      "1 Squat Clean & Jerk @ 80–85%",
+      "Rest 1:00",
+      "EMOM 3",
+      "1 Squat Clean & Jerk @ 88%+",
+      "---",
+      "METCON",
+      "Pay on Helen",
+      "AMRAP 12",
+      "400m Run",
+      "21 KB Swings US @ 24/16",
+      "12 Pull-ups",
+      "---",
+      "EXTRA",
+      "Kettlebell Side Bends",
+      "3 x 12/12"
+    ]
+  },
+  {
+    "name": "Snatch Lift Off + Row Ladder",
+    "day": 23,
+    "exercises": [
+      "WEIGHTLIFTING",
+      "Every 1:30 x 8",
+      "Snatch Lift Off + Snatch",
+      "2 x 1+1 @ 60% 1RM Snatch",
+      "2 x 1+1 @ 65% 1RM Snatch",
+      "2 x 1+1 @ 70% 1RM Snatch",
+      "1+1 @ 75% 1RM Snatch",
+      "1+1 @ 80% 1RM Snatch",
+      "---",
+      "METCON",
+      "12-11-10-9-8-7-6-5-4-3",
+      "Calories Row",
+      "6 Strict Pull-ups After Each Set",
+      "---",
+      "EXTRA",
+      "Prone Hamstring Curl",
+      "3 x 15",
+      "Moderate to Heavy Band"
+    ]
+  },
+  {
+    "name": "Gymnastics Engine",
+    "day": 24,
+    "exercises": [
+      "GYMNASTICS",
+      "5 Sets",
+      "1:00 On / 1:00 Off",
+      "12/9 Calorie Bike",
+      "Max Reps Rope Climbs",
+      "---",
+      "METCON",
+      "For Time",
+      "150 Double Unders",
+      "150 Ab Mat Sit-ups",
+      "Partition Work as Desired",
+      "---",
+      "EXTRA",
+      "Toes Elevated Romanian Deadlifts",
+      "3 x 8–12"
+    ]
+  },
+  {
+    "name": "Snatch + Squat Complex",
+    "day": 25,
+    "exercises": [
+      "WEIGHTLIFTING",
+      "EMOM 6",
+      "1 Squat Snatch @ 85–90% 1RM",
+      "Rest 1:00",
+      "EMOM 3",
+      "1 Squat Snatch @ 88–92% 1RM",
+      "---",
+      "METCON",
+      "5 Rounds",
+      "5 Front Squats",
+      "5 Thrusters",
+      "10 Burpees Over Bar",
+      "Rest 1:00",
+      "@ 60/43",
+      "---",
+      "EXTRA",
+      "3 x Max Reps Bent Over Rows @ RPE 7",
+      "Rest 1:00"
+    ]
+  },
+
+  {
+    "name": "5000m Row",
+    "day": 26,
+    "exercises": [
+      "WOD",
+      "5000m Row",
+      "For Time",
+      "---",
+      "EXTRA",
+      "Elevator Shoulder Press",
+      "5 x 3",
+      "Heavy"
+    ]
+  },
+  {
+    "name": "Team Synchro WOD",
+    "day": 27,
+    "exercises": [
+      "TEAM WOD",
+      "In Pairs",
+      "10 Rounds for Time",
+      "10 Synchro Toes to Bar",
+      "10 Synchro Single Dumbbell Squats @ 22.5/15",
+      "400m Run Together",
+      "---",
+      "EXTRA",
+      "3 x 20 Dumbbell Overhead Sit-ups"
+    ]
+  },
+  {
+    "name": "Front Squat EMOM",
+    "day": 28,
+    "exercises": [
+      "STRENGTH",
+      "Front Squat",
+      "5 x 2 @ RPE 6/10",
+      "Rest 1:00–1:30",
+      "---",
+      "METCON",
+      "EMOM 16",
+      "Min 1: 50 Double Unders",
+      "Min 2: 15 KB Swings US @ 24/16",
+      "Min 3: 200m Run",
+      "Min 4: Active Rest (Walk or Machine)",
+      "---",
+      "EXTRA",
+      "Glute Bridge Hold",
+      "3 x 60s",
+      "Rest as Needed"
+    ]
+  },
+  {
+    "name": "Back Squat + EMOM",
+    "day": 29,
+    "exercises": [
+      "BACK SQUAT",
+      "Every 2:30 x 5",
+      "2 Back Squats @ 85% 1RM",
+      "---",
+      "METCON",
+      "EMOM 10",
+      "3–5 D-Ball Cleans @ 70/50",
+      "3 Strict Handstand Push-ups",
+      "RX+: 5 Strict Handstand Push-ups",
+      "---",
+      "EXTRA",
+      "3 Sets",
+      "15 Band Pull Aparts",
+      "15 Band Face Pulls",
+      "15 Band Bent Over Lat Pulldowns"
+    ]
+  },
+  {
+    "name": "Snatch 1RM",
+    "day": 30,
+    "exercises": [
+      "WEIGHTLIFTING",
+      "Find 1 Rep Max Snatch",
+      "Time cap: 20:00",
+      "---",
+      "METCON",
+      "AMRAP 7",
+      "10 Alternating DB Snatch @ 22.5/15",
+      "16 Single Arm Overhead Walking Lunges @ 22.5/15",
+      "---",
+      "EXTRA",
+      "3 x 20 Weighted Sit-ups"
+    ]
+  },
+  {
+    "name": "Clean & Jerk Waves + Team WOD",
+    "day": 31,
+    "exercises": [
+      "WEIGHTLIFTING",
+      "Every 1:30 x 8",
+      "1 Power Clean + 1 Squat Clean + 1 Split Jerk",
+      "2 x 1+1+1 @ 65% 1RM Clean & Jerk",
+      "2 x 1+1+1 @ 70% 1RM Clean & Jerk",
+      "2 x 1+1+1 @ 75% 1RM Clean & Jerk",
+      "1 @ 1+1+1 @ 77%",
+      "1 @ 1+1+1 @ 80–82%",
+      "---",
+      "TEAM WOD",
+      "2 Rounds",
+      "21 Hang Power Cleans Synchro @ 43/30",
+      "25 Burpee Over Bar (Shared)",
+      "Rest 1:00",
+      "2 Rounds",
+      "18 Hang Power Cleans to Share @ 60/43",
+      "400m Run Together",
+      "---",
+      "EXTRA",
+      "Front Rack Bulgarian Split Squat",
+      "5 x 3–6 / Leg",
+      "Front Rack or Heavy Dumbbells"
+    ]
+  }
+]

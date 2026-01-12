@@ -32,6 +32,10 @@ export function HistoryBlock({
 
   console.log(">>>> historyLog check:,", dashboard);
 
+  function formatDate(dateString: string) {
+    return new Date(dateString).toISOString().split("T")[0];
+  }
+
   return (
     <div className=" flex flex-col gap-16 items-center">
       {userId ? (
@@ -54,7 +58,7 @@ export function HistoryBlock({
                     ))}
                   </div>
                   <div className="inline-flex items-center font-medium text-heading">
-                    {log.wod.date}
+                    {formatDate(log.created_at)}
                   </div>
                 </div>
               </li>

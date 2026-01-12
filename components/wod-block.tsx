@@ -10,7 +10,8 @@ type Wod = {
   id: string;
   name: string;
   exercises: string[];
-  date: string;
+  day: number;
+  // date: string;
 };
 
 export default function WodBlock({ userId, onLogged }) {
@@ -27,13 +28,21 @@ export default function WodBlock({ userId, onLogged }) {
         const supabase = createClient();
         const today = new Date();
         // const today = new Date().toISOString().split("T")[0];
-        const localDate = today.toLocaleDateString("en-CA");
+        const day = today.getDate();
+
+        console.log(">>>>> checking day:", today, day);
+        // const localDate = today.toLocaleDateString("en-CA");
 
         const { data, error } = await supabase
           .from("wods")
           .select("*")
-          .eq("date", localDate)
+          .eq("day", day)
           .single();
+        // const { data, error } = await supabase
+        //   .from("wods")
+        //   .select("*")
+        //   .eq("date", localDate)
+        //   .single();
 
         if (error) {
           console.log(">>>>> Error fetching WODs:", error);
