@@ -1,9 +1,4 @@
-export type Wod = {
-  date: string;
-  exercises: [];
-  id: string;
-  name: string;
-};
+import { Wod } from "./wod";
 
 export type Log = {
   id: string;

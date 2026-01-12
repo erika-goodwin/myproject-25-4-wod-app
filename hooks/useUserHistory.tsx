@@ -3,23 +3,6 @@ import { useCallback, useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import type { Log } from "@/types/history";
 
-// type Wod = {
-//   date: string;
-//   exercise: [];
-//   id: string;
-//   name: string;
-// };
-
-// type Log = {
-//   id: string;
-//   user_id: string;
-//   wod_id: string;
-//   completed: boolean;
-//   created_at: string;
-//   note: string;
-//   wod: Wod[];
-// };
-
 export function useUserHistory(userId: string | null) {
   const [loading, setLoading] = useState(true);
   const [history, setHistory] = useState<Log[]>([]);

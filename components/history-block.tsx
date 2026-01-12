@@ -31,7 +31,6 @@ export function HistoryBlock({
                 <div className="flex items-center gap-2">
                   <div className="flex-1 min-w-0 ms-2">
                     <p className="font-medium text-heading truncate">
-                      {/* {console.log(">>>>>> Lets check:", log.wod)} */}
                       {log.wod.name}
                     </p>
                     {log.wod.exercises.map((exercise, index) => (

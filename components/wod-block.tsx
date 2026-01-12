@@ -1,142 +1,167 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useTodaysWod } from "@/hooks/useTodaysWod";
+// import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
-import { logWorkout } from "@/lib/api";
-import { createClient } from "@/lib/supabase/client";
-import { redirect } from "next/navigation";
-import toast from "react-hot-toast";
+// import { logWorkout } from "@/lib/api";
+// import { createClient } from "@/lib/supabase/client";
+// import { redirect } from "next/navigation";
+// import toast from "react-hot-toast";
+// import { Wod } from "@/types/wod";
+import LoadingSpinner from "@/components/loading-spinner";
 
-type Wod = {
-  id: string;
-  name: string;
-  exercises: string[];
-  day: number;
-  // date: string;
-};
+// type Wod = {
+//   id: string;
+//   name: string;
+//   exercises: string[];
+//   day: number;
+//   // date: string;
+// };
 
-export default function WodBlock({ userId, onLogged }) {
-  const [wod, setWod] = useState<Wod | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [done, setDone] = useState(false);
-  const [note, setNote] = useState("");
-  const [showNoteInput, setShowNoteInput] = useState(false);
+export default function WodBlock({
+  userId,
+  onLogged,
+}: {
+  userId: string | null;
+  onLogged?: () => void;
+}) {
+  // const [wod, setWod] = useState<Wod | null>(null);
+  // const [loading, setLoading] = useState(true);
+  // const [done, setDone] = useState(false);
+  // const [note, setNote] = useState("");
+  // const [showNoteInput, setShowNoteInput] = useState(false);
 
-  // [2] Fetch Today's WOD
-  useEffect(() => {
-    const fetchWod = async () => {
-      try {
-        const supabase = createClient();
-        const today = new Date();
-        // const today = new Date().toISOString().split("T")[0];
-        const day = today.getDate();
+  const {
+    wod,
+    loading,
+    done,
+    note,
+    setNote,
+    showNoteInput,
+    setShowNoteInput,
+    handleClickDone,
+  } = useTodaysWod(userId, onLogged);
 
-        console.log(">>>>> checking day:", today, day);
-        // const localDate = today.toLocaleDateString("en-CA");
+  // const today = new Date();
+  const today = new Date().toISOString().split("T")[0];
 
-        const { data, error } = await supabase
-          .from("wods")
-          .select("*")
-          .eq("day", day)
-          .single();
-        // const { data, error } = await supabase
-        //   .from("wods")
-        //   .select("*")
-        //   .eq("date", localDate)
-        //   .single();
+  // // [2] Fetch Today's WOD
+  // useEffect(() => {
+  //   const fetchWod = async () => {
+  //     try {
+  //       const supabase = createClient();
+  //       const today = new Date();
+  //       // const today = new Date().toISOString().split("T")[0];
+  //       const day = today.getDate();
 
-        if (error) {
-          console.log(">>>>> Error fetching WODs:", error);
-          return;
-        }
+  //       // console.log(">>>>> checking day:", today, day);
 
-        console.log(">>> Fetched WOD:", data);
+  //       const { data, error } = await supabase
+  //         .from("wods")
+  //         .select("*")
+  //         .eq("day", day)
+  //         .single();
 
-        setWod(data);
-      } catch (err) {
-        console.error(">>> Unexpected WOD:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  //       if (error) {
+  //         console.log(">>>>> Error fetching WODs:", error);
+  //         return;
+  //       }
 
-    fetchWod();
-  }, []);
+  //       console.log(">>> Fetched WOD:", data);
 
-  // [3] Check if user already logged today's WOD
-  useEffect(() => {
-    const checkIfDone = async () => {
-      if (!userId || !wod?.id) return;
+  //       setWod(data);
+  //     } catch (err) {
+  //       console.error(">>> Unexpected WOD:", err);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-      console.log(">>>>>> log is done? ============", !userId || !wod?.id);
+  //   fetchWod();
+  // }, []);
 
-      const supabase = createClient();
-      const { data, error } = await supabase
-        .from("user_logs")
-        .select()
-        .eq("user_id", userId)
-        .eq("wod_id", wod.id)
-        .single();
+  // // [3] Check if user already logged today's WOD
+  // useEffect(() => {
+  //   const checkIfDone = async () => {
+  //     if (!userId || !wod?.id) return;
 
-      if (error) {
-        console.error("Error checking workout log:", error);
-        return;
-      }
+  //     // console.log(">>>>>> log is done? ============", !userId || !wod?.id);
 
-      if (data) {
-        console.log(">>>>>> WOD already logged today:", data);
-        setDone(true);
-      }
-    };
+  //     const supabase = createClient();
+  //     const { data, error } = await supabase
+  //       .from("user_logs")
+  //       .select()
+  //       .eq("user_id", userId)
+  //       .eq("wod_id", wod.id)
+  //       .single();
 
-    checkIfDone();
-  }, [userId]);
+  //     if (error) {
+  //       console.error("Error checking workout log:", error);
+  //       return;
+  //     }
 
-  //[4] Handle mark As Done
-  const handleClickDone = async () => {
-    if (!userId) {
-      toast("Please login first", {
-        icon: "🔑",
-      });
-      redirect("/auth/login");
-      // return;
-    }
+  //     if (data) {
+  //       // console.log(">>>>>> WOD already logged today:", data);
+  //       setDone(true);
+  //     }
+  //   };
 
-    if (done) return;
+  //   checkIfDone();
+  // }, [userId]);
 
-    console.log(">>> Logging workout...", { userId, wodId: wod?.id, note });
+  // //[4] Handle mark As Done
+  // const handleClickDone = async () => {
+  //   if (!userId) {
+  //     toast("Please login first", {
+  //       icon: "🔑",
+  //     });
+  //     redirect("/auth/login");
+  //     // return;
+  //   }
 
-    if (!wod?.id) {
-      toast.error("WOD data not logged yet.");
-      return;
-    }
+  //   if (done) return;
 
-    const { error } = await logWorkout(userId, wod?.id, note);
-    console.log("✅ Workout logged successfully:", {
-      userId,
-      wodId: wod?.id,
-      note,
-    });
-    if (error) {
-      toast.error("❌ Couldn’t save workout. Please try again.");
-    } else {
-      toast("Good Job!", {
-        icon: "👏",
-      });
+  //   // console.log(">>> Logging workout...", { userId, wodId: wod?.id, note });
 
-      // Clean up WOD
-      setDone(!done);
-      setNote("");
-      setShowNoteInput(false);
+  //   if (!wod?.id) {
+  //     toast.error("WOD data not logged yet.");
+  //     return;
+  //   }
 
-      // History update
-      onLogged?.();
-    }
-  };
+  //   const { error } = await logWorkout(userId, wod?.id, note);
+  //   // console.log("✅ Workout logged successfully:", {
+  //   //   userId,
+  //   //   wodId: wod?.id,
+  //   //   note,
+  //   // });
+  //   if (error) {
+  //     toast.error("❌ Couldn’t save workout. Please try again.");
+  //   } else {
+  //     toast("Good Job!", {
+  //       icon: "👏",
+  //     });
+
+  //     // Clean up WOD
+  //     setDone(!done);
+  //     setNote("");
+  //     setShowNoteInput(false);
+
+  //     // History update
+  //     onLogged?.();
+  //   }
+  // };
 
   // [5] US redering
   if (loading) {
-    return <p>Loading ... </p>;
+    // return <p>Loading ... </p>;
+    return <LoadingSpinner text="Loading ..." />;
+
+    // return (
+    //   <div className="flex justify-center align-middle">
+    //     <p>Loading ... </p>
+    //   </div>
+    // );
   }
+
   if (!wod) {
     return <p>Failed to load workout data.</p>;
   }
@@ -144,7 +169,7 @@ export default function WodBlock({ userId, onLogged }) {
   return (
     <>
       <div className="">
-        <p className="text-end">{wod.date}</p>
+        <p className="text-end">{today}</p>
       </div>
       <div className="flex items-baseline text-gray-900 dark:text-white">
         <span className="text-4xl font-extrabold tracking-tight">
