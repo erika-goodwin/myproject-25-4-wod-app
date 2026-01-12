@@ -15,7 +15,7 @@ export function HistoryBlock({
 
   const historyLog = dashboard ? logs.slice(0, 3) : logs;
 
-  // console.log(">>>> historyLog check:,", dashboard, historyLog);
+  console.log(">>>> historyLog check:,", historyLog);
 
   function formatDate(dateString: string) {
     return new Date(dateString).toISOString().split("T")[0];
@@ -28,22 +28,28 @@ export function HistoryBlock({
           <ul role="list" className=" divide-y divide-default">
             {historyLog.map((log) => (
               <li key={log.id} className="py-4 sm:py-4 border-b">
-                <div className="flex items-center gap-2">
-                  <div className="flex-1 min-w-0 ms-2">
-                    <p className="font-medium text-heading truncate">
-                      {log.wod.name}
-                    </p>
-                    {log.wod.exercises.map((exercise, index) => (
-                      <p
-                        key={`excercise-${index + 1}`}
-                        className="text-sm text-body truncate"
-                      >
-                        {exercise}
+                <div className="flex flex-col">
+                  <div className="flex flex-row items-start gap-2">
+                    <div className="flex-1 min-w-0 ms-2">
+                      <p className="font-medium text-heading truncate">
+                        {log.wod.name}
                       </p>
-                    ))}
+                      {log.wod.exercises.map((exercise, index) => (
+                        <p
+                          key={`excercise-${index + 1}`}
+                          className="text-sm text-body truncate"
+                        >
+                          {exercise}
+                        </p>
+                      ))}
+                    </div>
+                    <div className="inline-flex font-medium text-heading">
+                      {formatDate(log.created_at)}
+                    </div>
                   </div>
-                  <div className="inline-flex items-center font-medium text-heading">
-                    {formatDate(log.created_at)}
+                  <div className="py-4 ms-2">
+                    <p className="font-medium text-heading truncate">Note:</p>
+                    <p className="text-sm">{log.notes}</p>
                   </div>
                 </div>
               </li>
