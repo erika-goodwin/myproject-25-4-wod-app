@@ -8,7 +8,5 @@ export default async function HistoryPage() {
     // userFetchError,
   } = await supabase.auth.getUser();
 
-  // };
-
   return <HistoryBoard user={user} />;
 }

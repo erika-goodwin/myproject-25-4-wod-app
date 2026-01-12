@@ -1,21 +1,6 @@
 "use client";
+import type { Log } from "@/types/history";
 import Link from "next/link";
-
-type Wod = {
-  date: string;
-  exercise: [];
-  id: string;
-  name: string;
-};
-type Log = {
-  id: string;
-  user_id: string;
-  wod_id: string;
-  completed: boolean;
-  create_at: string;
-  note: string;
-  wod: Wod[];
-};
 
 export function HistoryBlock({
   logs,
@@ -23,14 +8,14 @@ export function HistoryBlock({
   dashboard,
 }: {
   logs: Log[];
-  userId: any;
+  userId: string | null;
   dashboard: boolean;
 }) {
   console.log(">>>>> history component:", userId, logs);
 
   const historyLog = dashboard ? logs.slice(0, 3) : logs;
 
-  console.log(">>>> historyLog check:,", dashboard);
+  console.log(">>>> historyLog check:,", dashboard, historyLog);
 
   function formatDate(dateString: string) {
     return new Date(dateString).toISOString().split("T")[0];
@@ -46,6 +31,7 @@ export function HistoryBlock({
                 <div className="flex items-center gap-2">
                   <div className="flex-1 min-w-0 ms-2">
                     <p className="font-medium text-heading truncate">
+                      {/* {console.log(">>>>>> Lets check:", log.wod)} */}
                       {log.wod.name}
                     </p>
                     {log.wod.exercises.map((exercise, index) => (
