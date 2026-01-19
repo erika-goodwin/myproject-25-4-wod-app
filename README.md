@@ -12,7 +12,7 @@ Users can log in, view the daily Workout of the Day (WOD), mark it as completed,
 
 - **Spec:** Next.js 13+ (App Router), TypeScript, Tailwind CSS, Supabase Auth(Email / GitHub), Supabase (PostgreSQL), Vercel
 
-- **Check App:** [Check here]https://myproject-25-4-wod-app.vercel.app/)
+- **Check App:** [Check here](https://myproject-25-4-wod-app.vercel.app/)
 
 ### Why made me create this app?
 After building my previous Workout Recorder app using only React and LocalStorage, I wanted to take the next step and build something closer to a real-world product. Since I train almost every day with CrossFit and HYROX-style workouts, the idea of a Daily WOD Tracker felt like a natural progression.
