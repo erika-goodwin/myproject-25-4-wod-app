@@ -12,7 +12,7 @@ export default async function SiteLayout({
   return (
     <div className="min-h-screen flex flex-col items-center gap-10">
       {/* NAV */}
-      <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
+      <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16 sticky top-0  bg-charcoal opacity-95 backdrop-blur z-50 shadow-sm">
         <div className="w-full max-w-5xl flex flex-col sm:flex-row justify-between items-center p-3 px-5 text-sm">
           <div className="w-full flex gap-5 item-start md:items-center font-semibold">
             <Link href="/">WOD Tracker</Link>
