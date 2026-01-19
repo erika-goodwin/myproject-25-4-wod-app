@@ -36,11 +36,11 @@ export default function WodBlock({
 
   return (
     <>
-      <div className="">
+      <div className="absolute right-4 top-4">
         <p className="text-end">{today}</p>
       </div>
       <div className="flex items-baseline text-gray-900 dark:text-white">
-        <span className="text-4xl font-extrabold tracking-tight">
+        <span className="text-2xl md:text-4xl font-extrabold tracking-tight">
           {wod.name}
         </span>
       </div>
