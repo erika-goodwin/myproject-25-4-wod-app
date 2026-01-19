@@ -11,8 +11,6 @@ export function HistoryBlock({
   userId: string | null;
   dashboard: boolean;
 }) {
-  // console.log(">>>>> history component:", userId, logs);
-
   const historyLog = dashboard ? logs.slice(0, 3) : logs;
 
   console.log(">>>> historyLog check:,", historyLog);
@@ -47,10 +45,12 @@ export function HistoryBlock({
                       {formatDate(log.created_at)}
                     </div>
                   </div>
-                  <div className="py-4 ms-2">
-                    <p className="font-medium text-heading truncate">Note:</p>
-                    <p className="text-sm">{log.notes}</p>
-                  </div>
+                  {log.notes && (
+                    <div className="py-4 ms-2">
+                      <p className="font-medium text-heading truncate">Note:</p>
+                      <p className="text-sm">{log.notes}</p>
+                    </div>
+                  )}
                 </div>
               </li>
             ))}
