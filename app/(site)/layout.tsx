@@ -13,8 +13,8 @@ export default async function SiteLayout({
     <div className="min-h-screen flex flex-col items-center gap-10">
       {/* NAV */}
       <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
-        <div className="w-full max-w-5xl flex justify-between items-center p-3 px-5 text-sm">
-          <div className="flex gap-5 items-center font-semibold">
+        <div className="w-full max-w-5xl flex flex-col sm:flex-row justify-between items-center p-3 px-5 text-sm">
+          <div className="w-full flex gap-5 item-start md:items-center font-semibold">
             <Link href="/">WOD Tracker</Link>
             <Link href="/history">History</Link>
           </div>
@@ -24,7 +24,7 @@ export default async function SiteLayout({
       </nav>
 
       {/* PAGE CONTENT */}
-      <main className="flex-1 w-full flex flex-col gap-5 items-center">
+      <main className="flex-1 w-full flex flex-col gap-5 items-center px-6">
         {children}
       </main>
 

@@ -11,7 +11,7 @@ export function ContentBox({ title, children, className }: ContentBoxProps) {
     <>
       <div
         className={cn(
-          "w-full max-w-lg p-4 bg-offwhite/10 rounded-lg shadow-sm sm:p-8 ",
+          "w-full max-w-lg p-4 bg-offwhite/10 rounded-lg shadow-sm sm:p-8 relative",
           className
         )}
       >
